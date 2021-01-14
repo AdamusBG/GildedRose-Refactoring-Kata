@@ -140,9 +140,58 @@ class GildedRoseTest {
         assertEquals((startingSellIn - 1), app.items[0].sellIn);
         assertEquals(0, app.items[0].quality);
     }
+    @Test
+    void passesMaxQualityIs50() {
+        int startingSellIn = this.getRandomNumberInRangeInclusive(1, 5);
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 45) };
+        GildedRose app = new GildedRose(items);
+        for (int i = 0; i < 4; i++) {
+          app.updateQuality();
+        }
+        assertEquals("Backstage passes to a TAFKAL80ETC concert", app.items[0].name);
+        assertEquals(50, app.items[0].quality);
+    }
+
+    // Conjured tests
+    @Test
+    void conjuredDecreasesQualityBy2WhenSellInAbove0() {
+        Item[] items = new Item[] { new Item("Conjured", 10, 25) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Conjured", app.items[0].name);
+        assertEquals(9, app.items[0].sellIn);
+        assertEquals(23, app.items[0].quality);
+    }
+    @Test
+    void conjuredDecreasesQualityBy4WhenSellInAt0() {
+        Item[] items = new Item[] { new Item("Conjured", 0, 25) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Conjured", app.items[0].name);
+        assertEquals(-1, app.items[0].sellIn);
+        assertEquals(21, app.items[0].quality);
+    }
+    @Test
+    void conjuredDecreasesQualityBy4WhenSellInBelow0() {
+        Item[] items = new Item[] { new Item("Conjured", -10, 25) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals("Conjured", app.items[0].name);
+        assertEquals(-11, app.items[0].sellIn);
+        assertEquals(21, app.items[0].quality);
+    }
+    @Test
+    void conjuredMinQualityIs0() {
+        Item[] items = new Item[] { new Item("Conjured", -10, 10) };
+        GildedRose app = new GildedRose(items);
+        for (int i = 0; i < 10; i++) {
+          app.updateQuality();
+        }
+        assertEquals("Conjured", app.items[0].name);
+        assertEquals(0, app.items[0].quality);
+    }
 
     // Test helper methods
-
     private static int getRandomNumberInRangeInclusive(int min, int max) {
       Random r = new Random();
       return r.nextInt((max - min) + 1) + min;
