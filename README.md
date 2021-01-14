@@ -28,3 +28,7 @@ Before attempting to write or edit any code I carefully read both the specificat
 With the exception of rules relating to "conjured" items, I proved that all of these rules were implemented in the original code by creating 13 JUnit 5 tests. These had the additional benefit of informing me if any of the original functionality was lost by my updates.  
 
 ![initial tests](./images/initial_tests.png)
+
+After refactoring the initial code and adding in the new functionality for "conjured" items, I added several tests to the existing test suite. This brings the total to 18 JUnit 5 tests.  
+
+![final tests](./images/final_tests.png)
