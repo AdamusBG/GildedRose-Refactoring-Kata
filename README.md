@@ -23,8 +23,8 @@ If you are unable to use `gradle`, it may not be installed on your computer. See
 
 Before attempting to write or edit any code I carefully read both the specification and legacy code to create the below list of rules. Presented a little bit more clearly than in the specification.  
 
-!(update rules)[./images/update_rules.png]
+![update rules](./images/update_rules.png)
 
 With the exception of rules relating to "conjured" items, I proved that all of these rules were implemented in the original code by creating 13 JUnit 5 tests. These had the additional benefit of informing me if any of the original functionality was lost by my updates.  
 
-!(initial tests)[./images/initial_tests.png]
+![initial tests](./images/initial_tests.png)
