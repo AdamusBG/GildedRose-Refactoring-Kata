@@ -3,6 +3,10 @@ package com.gildedrose;
 class GildedRose {
     Item[] items;
 
+    public static final int maxQuality = 50;
+    public static final int minQuality = 0;
+    public static final int sulfurasQuality = 80;
+
     public GildedRose(Item[] items) {
         this.items = items;
     }
@@ -21,11 +25,11 @@ class GildedRose {
             this.updateNormal(items[i]);
           }
 
-          if (items[i].quality > 50) {
+          if (items[i].quality > this.maxQuality) {
             this.reduceToMaxQuality(items[i]);
           }
 
-          if (items[i].quality < 0) {
+          if (items[i].quality < this.minQuality) {
             this.raiseToMinQuality(items[i]);
           }
 
@@ -43,7 +47,7 @@ class GildedRose {
     }
 
     private void updateSulfuras(Item item) {
-      item.quality = 80;
+      item.quality = this.sulfurasQuality;
     }
 
     private void updateBackstagePass(Item item) {
@@ -75,12 +79,12 @@ class GildedRose {
 
     private void reduceToMaxQuality(Item item) {
       if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-        item.quality = 50;
+        item.quality = this.maxQuality;
       }
     }
 
     private void raiseToMinQuality(Item item) {
-      item.quality = 0;
+      item.quality = this.minQuality;
     }
 
     private void reduceSellIn(Item item) {
