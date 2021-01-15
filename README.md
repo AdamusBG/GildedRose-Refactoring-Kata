@@ -6,9 +6,9 @@ To clone my fork of this repo to your computer, please navigate to your desired 
 
 ## Java
 
-I have worked on the kata in Java, please navigate [here](https://github.com/AdamusBG/GildedRose-Refactoring-Kata/tree/master/Java) to see my solution.  
+I have worked on the kata in Java.
 
-To run the tests, please navigate to the Java directory (/GildedRose-Refactoring-Kata/Java) after cloning this repo to your computer and enter the following:
+To run the tests, please navigate into the top level directory after cloning this repo to your computer and enter the following:
 
 ```
 $ gradle test
